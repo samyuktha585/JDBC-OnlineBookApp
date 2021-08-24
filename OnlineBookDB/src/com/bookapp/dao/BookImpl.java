@@ -132,7 +132,7 @@ public class BookImpl implements BookInter {
 		PreparedStatement statement = null;
 		List<Book> bookList = new ArrayList<>();
 		try {
-			statement = connection.prepareStatement(sql);
+			statement = connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
